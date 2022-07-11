@@ -1,13 +1,12 @@
 ﻿using System;
 
-
 namespace Helper
 {
     public class MatrixHelper
     {
         public static int[,] GenerateMatrix(int x, int y)
         {
-            if (x == 0 || y == 0)
+            if (x <= 0 || y <= 0)
             {
                 throw new ArgumentException();
             }
@@ -21,13 +20,13 @@ namespace Helper
                     matrix[i, j] = random.Next(0, x * y);
                 }
             }
-            PrintMatrix(matrix);
+
             return matrix;
         }
 
         public static int[,] ReverseMatrix(int[,] matrix)
         {
-            if (matrix == null)
+            if (matrix == null || matrix.Length == 0)
             {
                 throw new ArgumentException();
             }
@@ -39,7 +38,7 @@ namespace Helper
                    LinearEquations.Swap(ref matrix[i, j], ref matrix[matrix.GetLength(0) - 1 - i, matrix.GetLength(1) - 1 - j]);
                 }
             }
-            PrintMatrix(matrix);
+
             return matrix;
         }
 
@@ -66,12 +65,10 @@ namespace Helper
         //3.	Find the index of the minimum element of the array
         public static int[] GetMinIndexOfMatrix(int[,] matrix)
         {
-            if (matrix == null)
+            if (matrix == null || matrix.Length == 0)
             {
                 throw new ArgumentException();
             }
-
-            int firstElement = matrix[0, 0];
             
             int xMinIndex = 0;
             int yMinIndex = 0;
@@ -80,9 +77,8 @@ namespace Helper
             {
                 for (int j = 0; j < matrix.GetLength(1); j++)
                 {
-                    if (matrix[i, j] < firstElement)
+                    if (matrix[i, j] < matrix[xMinIndex, yMinIndex])
                     {
-                        firstElement = matrix[i, j];
                         xMinIndex = i;
                         yMinIndex = j;
                     }
@@ -104,16 +100,13 @@ namespace Helper
             return result;
         }
 
-
         //4.	Find the index of the maximum element of the array
         public static int[] GetMaxIndexOfMatrix(int[,] matrix)
         {
-            if (matrix == null)
+            if (matrix == null || matrix.Length == 0)
             {
                 throw new ArgumentException();
             }
-
-            int firstElement = matrix[0, 0];
 
             int xMaxIndex = 0;
             int yMaxIndex = 0;
@@ -122,9 +115,8 @@ namespace Helper
             {
                 for (int j = 0; j < matrix.GetLength(1); j++)
                 {
-                    if (matrix[i, j] > firstElement)
+                    if (matrix[i, j] > matrix[xMaxIndex, yMaxIndex])
                     {
-                        firstElement = matrix[i, j];
                         xMaxIndex = i;
                         yMaxIndex = j;
                     }
@@ -146,24 +138,32 @@ namespace Helper
             return result;
         }
 
-
         //6.	Flip an array about its main diagonal
         public static int[,] GetFlippedArrayAboutItsMainDiagonal(int[,] matrix)
         {
-            if (matrix == null || matrix.GetLength(0) != matrix.GetLength(1))
+            if (matrix == null || matrix.GetLength(0) != matrix.GetLength(1) || matrix.Length != 0)
             {
                 throw new ArgumentException();
             }
 
+            int[,] flippedArray = new int[matrix.GetLength(0), matrix.GetLength(1)];
+
             for (int i = 0; i < matrix.GetLength(0); i++)
             {
-                for (int j = 0; j <= i; j++)
+                for (int j = 0; j < matrix.GetLength(1); j++)
                 {
-                        matrix[i, j] = matrix[i, j] + matrix[j, i] - (matrix[j, i] = matrix[i, j]);
+                    if (i != j)
+                    {
+                        flippedArray[i, j] = matrix[matrix.GetLength(0) - 1 - i, matrix.GetLength(1) - 1 - j];
+                    }
+                    else
+                    {
+                        flippedArray[i, j] = matrix[i, j];
+                    }
                 }
             }
-            //PrintMatrix(matrix);
-            return matrix;
+
+            return flippedArray;
         }
     }
 }
