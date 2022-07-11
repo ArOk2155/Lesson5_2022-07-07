@@ -91,7 +91,7 @@ namespace Helper
         }
 
         //1.	Find the minimum element of an array
-        public static int GetMinElementOfArray(int[,] matrix)
+        public static int GetMinElementOfMatrix(int[,] matrix)
         {
             int[] array = GetMinIndexOfMatrix(matrix);
             
@@ -129,7 +129,7 @@ namespace Helper
         }
 
         //2.	Find the maximum element of an array
-        public static int GetMaxElementOfArray(int[,] matrix)
+        public static int GetMaxElementOfMatrix(int[,] matrix)
         {
             int[] array = GetMaxIndexOfMatrix(matrix);
 
