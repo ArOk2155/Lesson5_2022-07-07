@@ -81,14 +81,12 @@ namespace Helper
                 throw new ArgumentException();
             }
 
-            int firstElement = array[0];
             int minIndex = 0;
 
             for (int i = 1; i < array.Length; i++)
             {
-                if (array[i] < firstElement)
+                if (array[i] < array[minIndex])
                 {
-                    firstElement = array[i];
                     minIndex = i;
                 }
             }
@@ -105,14 +103,12 @@ namespace Helper
                 throw new ArgumentException();
             }
 
-            int firstElement = array[0];
             int maxIndex = 0;
 
             for (int i = 1; i < array.Length; i++)
             {
-                if (array[i] > firstElement)
+                if (array[i] > array[maxIndex])
                 {
-                    firstElement = array[i];
                     maxIndex = i;
                 }
             }

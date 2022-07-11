@@ -26,7 +26,7 @@ namespace Helper
 
         public static int[,] ReverseMatrix(int[,] matrix)
         {
-            if (matrix == null || matrix.Length == 0)
+            if (matrix == null)
             {
                 throw new ArgumentException();
             }
@@ -137,6 +137,8 @@ namespace Helper
 
             return result;
         }
+
+        //5.	Find the number of array elements that are greater than all their neighbors at the same time
 
         //6.	Flip an array about its main diagonal
         public static int[,] GetFlippedArrayAboutItsMainDiagonal(int[,] matrix)
