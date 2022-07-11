@@ -45,6 +45,11 @@ namespace Helper
 
         public static void PrintMatrix(int[,] matrix)
         {
+            if (matrix == null)
+            {
+                throw new ArgumentException();
+            }
+
             for (int i = 0; i < matrix.GetLength(0); i++)
             {
                 for (int j = 0; j < matrix.GetLength(1); j++)
@@ -145,6 +150,11 @@ namespace Helper
         //6.	Flip an array about its main diagonal
         public static int[,] GetFlippedArrayAboutItsMainDiagonal(int[,] matrix)
         {
+            if (matrix == null || matrix.GetLength(0) != matrix.GetLength(1))
+            {
+                throw new ArgumentException();
+            }
+
             for (int i = 0; i < matrix.GetLength(0); i++)
             {
                 for (int j = 0; j <= i; j++)

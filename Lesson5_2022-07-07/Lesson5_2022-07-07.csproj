@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\LinearEquations\Helper.csproj" />
+    <ProjectReference Include="..\Helper\Helper.csproj" />
   </ItemGroup>
 
 </Project>
