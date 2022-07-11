@@ -1,4 +1,5 @@
 ﻿using System;
+using Helper;
 
 namespace Lesson5_2022_07_07
 {
@@ -6,7 +7,7 @@ namespace Lesson5_2022_07_07
     {
         static void Main(string[] args)
         {
-
+            MatrixHelper.GetFlippedArrayAboutItsMainDiagonal(MatrixHelper.GenerateMatrix(3, 3)); 
         }
     }
 }
