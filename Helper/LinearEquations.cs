@@ -38,7 +38,7 @@ namespace Helper
         }
 
         // The user enters 2 numbers (A and B). Print to the console the result of dividing A by B and the division remainder.
-        public static (int result, int divisionRemainder) SomeCalculation(int a, int b)
+        public static (int result, int divisionRemainder) CalculateDivisionAndRemainderFromDivision(int a, int b)
         {
             if (b == 0)
             {
@@ -52,7 +52,7 @@ namespace Helper
         }
 
         // The user enters 3 non-zero numbers (A, B and C). Print to the console the solution (X value) of the standard linear equation, where A*X+B=C.
-        public static float LinearEquation(int a, int b, int c)
+        public static float CalcLinearEquation(int a, int b, int c)
         {
             if (a == 0)
             {
@@ -80,7 +80,7 @@ namespace Helper
         // The variable N stores a natural two-digit number (10-99). Write a program that calculates and displays the sum of the digits of n.
         public static int SumOfDigits(int someNumber)
         {
-            if (someNumber < 10)
+            if (someNumber < 10 || someNumber > 99)
             {
                 throw new ArgumentOutOfRangeException();
             }
