@@ -5,7 +5,7 @@ namespace Helper
     public class IfElseHelper
     {
         //1.	The user enters 2 numbers (A and B). If A > B, result is A+B, if A=B, result is A * B, if A < B, result is A-B.
-        public static int Condition1(int a, int b)
+        public static int CalcCondition(int a, int b)
         {
             int result;
 
@@ -29,7 +29,13 @@ namespace Helper
         //2.	The user enters 2 numbers (X and Y). Determine which quarter the point with coordinates (X, Y) belongs to.
         public static int GetCoordinateQuater(int x, int y)
         {
+            if (x == 0 || y == 0)
+            {
+                throw new ArgumentException();
+            }
+
             int result = 0;
+
             if (x > 0 && y > 0)
             {
                 result = 1;
@@ -55,16 +61,19 @@ namespace Helper
         {
             if (a > b)
             {
-                Helper.LinearEquations.Swap(ref a, ref b);
+                LinearEquations.Swap(ref a, ref b);
             }
-            else if (a > c)
+            
+            if (a > c)
             {
-                Helper.LinearEquations.Swap(ref a, ref c);
+                LinearEquations.Swap(ref a, ref c);
             }
-            else if (b > c)
+            
+            if (b > c)
             {
-                Helper.LinearEquations.Swap(ref b, ref c);
+                LinearEquations.Swap(ref b, ref c);
             }
+            
             return (a, b, c);
         }
 
@@ -75,7 +84,12 @@ namespace Helper
             double x2 = double.NaN;
             double d = b * b - 4 * a * c;
 
-            if (a == 0 || d < 0)
+            if (d < 0)
+            {
+                throw new ArgumentException();
+            }
+
+            if (a == 0)
             {
                 throw new DivideByZeroException();
             }
