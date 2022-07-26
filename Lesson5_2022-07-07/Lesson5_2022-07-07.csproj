@@ -6,4 +6,8 @@
     <RootNamespace>Lesson5_2022_07_07</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Helper\Helper.csproj" />
+  </ItemGroup>
+
 </Project>
